@@ -37,22 +37,23 @@ reg            Branch_o;
 
 //Parameter
 wire Rformat;
-wire lw;
-wire sw;
-wire beq;
-assign Rformat = ~(instr_op_i[0] | instr_op_i[1] | instr_op_i[2] | instr_op_i[3] | instr_op_i[4] | instr_op_i[5]);
-assign lw = instr_op_i[0] & instr_op_i[1] & ~instr_op_i[2] & ~instr_op_i[3] & ~instr_op_i[4] & instr_op_i[5];
-assign sw = instr_op_i[0] & instr_op_i[1] & ~instr_op_i[2] & instr_op_i[3] & ~instr_op_i[4] & instr_op_i[5];
-assign beq = ~instr_op_i[0] & ~instr_op_i[1] & instr_op_i[2] & ~instr_op_i[3] & ~instr_op_i[4] & ~instr_op_i[5];
-
+wire Immediate;
+wire Slti;
+wire Beq;
+assign Rformat = ~instr_op_i[5] & ~instr_op_i[4] & ~instr_op_i[3] & ~instr_op_i[2] & ~instr_op_i[1] & ~instr_op_i[0]);
+assign Beq = ~instr_op_i[5] & ~instr_op_i[4] & ~instr_op_i[3] & ~instr_op_i[2] & ~instr_op_i[1] & ~instr_op_i[0];
+assign Immediate = ~instr_op_i[5] & ~instr_op_i[4] & instr_op_i[3];
 //Main function
+assign Slti = ~instr_op_i[5] & ~instr_op_i[4] & instr_op_i[3] & ~instr_op_i[2] & instr_op_i[1] & ~instr_op_i[0];
 always@( instr_op_i )
 begin
 	RegDst_o 	<= Rformat;
-	ALUSrc_o 	<= lw | sw;
-	RegWrite_o 	<= Rformat | lw;
-	Branch_o	<= beq;
-	ALU_op_o 	<= {1'b0, Rformat, beq};
+	ALUSrc_o 	<= Slti;
+	RegWrite_o 	<= Slti | Rformat;
+	Branch_o	<= Beq;
+	ALU_op_o[2] <= Immediate | Beq;
+	ALU_op_o[1] <= Slti | Rformat;
+	ALU_op_o[0] <= Slti | Beq;
 end
 
 endmodule
