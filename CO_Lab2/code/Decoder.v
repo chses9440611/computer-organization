@@ -48,7 +48,7 @@ assign Slti = ~instr_op_i[5] & ~instr_op_i[4] & instr_op_i[3] & ~instr_op_i[2] &
 always@( instr_op_i )
 begin
 	RegDst_o 	<= Rformat;
-	ALUSrc_o 	<= Slti;
+	ALUSrc_o 	<= Immediate;
 	RegWrite_o 	<= Slti | Rformat;
 	Branch_o	<= Beq;
 	ALU_op_o[2] <= Immediate | Beq;
