@@ -49,7 +49,7 @@ always@( instr_op_i )
 begin
 	RegDst_o 	<= Rformat;
 	ALUSrc_o 	<= Immediate;
-	RegWrite_o 	<= Slti | Rformat;
+	RegWrite_o 	<= Immediate | Rformat;
 	Branch_o	<= Beq;
 	ALU_op_o[2] <= Immediate | Beq;
 	ALU_op_o[1] <= Slti | Rformat;
