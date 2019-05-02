@@ -29,7 +29,7 @@ reg        [4-1:0] ALUCtrl_o;
 
        
 //Select exact operation
-always@(funct_i)
+always@(funct_i, ALUOp_i)
 begin
   ALUCtrl_o[3] <= 1'b0;
   ALUCtrl_o[2] <= ( ALUOp_i[1] &  funct_i[1] ) | ALUOp_i[0];
