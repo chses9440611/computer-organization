@@ -32,7 +32,7 @@ reg        [4-1:0] ALUCtrl_o;
 always@(funct_i)
 begin
   ALUCtrl_o[2] <= ( ALUOp_i[1] & funct_i[1] ) | ALUOp_i[0];
-  ALUCtrl_o[1] <= (~ALUOp_i[1] | (~funct_i[2]);
+  ALUCtrl_o[1] <= ~ALUOp_i[1] | ~funct_i[2];
   ALUCtrl_o[0] <= (funct_i[3] | funct_i[0]) & ALUOp_i[1];
 
 end

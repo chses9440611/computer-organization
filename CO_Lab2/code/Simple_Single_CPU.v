@@ -20,7 +20,7 @@ input         rst_i;
 
 //Internal Signles
 wire [31:0] constant_4 ;
-assign constant_4 = 32'b4;
+assign constant_4 = 32'd4;
 
 wire [31:0] pc_in;
 wire [31:0] pc_out;

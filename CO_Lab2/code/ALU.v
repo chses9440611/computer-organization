@@ -37,13 +37,15 @@ assign zero_o = (result_o == 0);
 
 always@(ctrl_i, src1_i, src2_i) begin
   case (ctrl_i)
-	0: result_o <= A & B;
-	1: result_o <= A | B;
-	2: result_o <= A + B;
-	6: result_o <= A - B;
-	7: result_o <= A < B ? 1 : 0;
-	12: result_o <= ~(A | B);
-  default: result_o <= 0;
+	0: result_o <= src1_i & src2_i;
+	1: result_o <= src1_i | src2_i;
+	2: result_o <= src1_i + src2_i;
+	6: result_o <= src1_i - src2_i;
+	7: result_o <= src1_i < src2_i ? 1 : 0;
+	12: result_o <= ~(src1_i | src2_i);
+  	default: result_o <= 0;
+  endcase
+end
 endmodule
 
 

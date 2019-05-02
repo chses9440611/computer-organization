@@ -34,6 +34,7 @@ begin
 	case (select_i)
 	  1'b0 : data_o <= data0_i;
 	  1'b1 : data_o <= data1_i;
+	endcase
 
 end
 
