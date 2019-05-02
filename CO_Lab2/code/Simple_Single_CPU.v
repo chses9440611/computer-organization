@@ -27,7 +27,7 @@ wire [31:0] pc_out;
 wire [31:0] instruction;
 wire [31:0] seq_addr;
 wire [31:0] branch_addr;
-wire [31:0] MuxWriteReg_o;
+wire [5-1:0] MuxWriteReg;
 wire [31:0] RData_1;
 wire [31:0] RData_2;
 wire [31:0] ALU_src2;
@@ -37,7 +37,7 @@ wire [31:0] shifted_result;
 
 // contril signal
 wire [4-1:0] ALU_ctrl;
-wire [2-1:0] ALU_op;
+wire [3-1:0] ALU_op;
 wire ALU_source;
 wire branch;
 wire regwrite;
@@ -76,7 +76,7 @@ Reg_File RF(
 	    .rst_i(rst_i) ,     
         .RSaddr_i(instruction[25:21]) ,  
         .RTaddr_i(instruction[20:16]) ,  
-        .RDaddr_i(MuxWrite_o) ,  
+        .RDaddr_i(MuxWriteReg) ,  
         .RDdata_i(ALU_result)  , 
         .RegWrite_i (regwrite),
         .RSdata_o(RData_1) ,  
