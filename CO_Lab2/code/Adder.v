@@ -22,12 +22,14 @@ input  [32-1:0]	 src2_i;
 output [32-1:0]	 sum_o;
 
 //Internal Signals
-wire    [32-1:0]	 sum_o;
+reg    [32-1:0]	 sum_o;
 
 //Parameter
     
 //Main function
-assign sum_o = src1_i + src2_i;
+always@(src1_i, src2_i)begin
+	sum_o <= src1_i + src2_i;
+  end
 endmodule
 
 
