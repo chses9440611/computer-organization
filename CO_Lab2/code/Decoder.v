@@ -41,7 +41,7 @@ wire Immediate;
 wire Slti;
 wire Beq;
 assign Rformat = ~instr_op_i[5] & ~instr_op_i[4] & ~instr_op_i[3] & ~instr_op_i[2] & ~instr_op_i[1] & ~instr_op_i[0];
-assign Beq = ~instr_op_i[5] & ~instr_op_i[4] & ~instr_op_i[3] & ~instr_op_i[2] & ~instr_op_i[1] & ~instr_op_i[0];
+assign Beq = ~instr_op_i[5] & ~instr_op_i[4] & ~instr_op_i[3] & instr_op_i[2] & ~instr_op_i[1] & ~instr_op_i[0];
 assign Immediate = ~instr_op_i[5] & ~instr_op_i[4] & instr_op_i[3];
 //Main function
 assign Slti = ~instr_op_i[5] & ~instr_op_i[4] & instr_op_i[3] & ~instr_op_i[2] & instr_op_i[1] & ~instr_op_i[0];
