@@ -1,3 +1,4 @@
+//Student ID: 0310020
 //Subject:     CO project 2 - Adder
 //--------------------------------------------------------------------------------
 //Version:     1
@@ -26,6 +27,9 @@ wire    [32-1:0]	 sum_o;
 //Parameter
     
 //Main function
+always@(src1_i, src2_i)begin
+  sum_o <= src1_i + src2_i;
+end
 
 endmodule
 
