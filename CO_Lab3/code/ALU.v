@@ -43,6 +43,8 @@ always@(ctrl_i, src1_i, src2_i) begin
 	7: result_o <= src1_i < src2_i ? 1 : 0;
 	12: result_o <= ~(src1_i | src2_i);
   	default: result_o <= 0;
+  endcase
+end
 endmodule
 
 
