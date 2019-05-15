@@ -52,9 +52,9 @@ wire [31:0] next_pc;// pc+4
 wire [31:0] branch_addr;
 wire [31:0] jump_addr; 
 wire [31:0] from_branch_addr;
-wire [31:0] Extend_addr;
+wire [31:0] signExtend_addr;
 wire [31:0] shift_addr;
-wire [31:0] writeReg;
+wire [5-1:0] writeReg;
 wire [31:0] rsData;
 wire [31:0] rtData;
 wire [31:0] wbData; // write back to register
@@ -153,7 +153,7 @@ MUX_3to1 #(.size(32)) Mux_Write_Data_Src(
 	.data0_i(ALU_result),
 	.data1_i(memData),
 	.data2_i(next_pc),
-	.select_i(mem2Reg).
+	.select_i(mem2Reg),
 	.data_o(wbData)
 );
 

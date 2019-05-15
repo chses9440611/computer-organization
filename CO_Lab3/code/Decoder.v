@@ -38,8 +38,8 @@ output [2-1:0] MEM2Reg;
 //Internal Signals
 reg    [3-1:0] ALU_op_o;
 reg            ALUSrc_o;
-reg    [2-1:0] RegWrite_o;
-reg            RegDst_o;
+reg            RegWrite_o;
+reg    [2-1:0] RegDst_o;
 reg            Branch_o;
 reg            JumpType;
 reg			   MEM_Write;

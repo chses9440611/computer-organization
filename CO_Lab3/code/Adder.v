@@ -22,7 +22,7 @@ input  [32-1:0]	 src2_i;
 output [32-1:0]	 sum_o;
 
 //Internal Signals
-wire    [32-1:0]	 sum_o;
+reg    [32-1:0]	 sum_o;
 
 //Parameter
     
