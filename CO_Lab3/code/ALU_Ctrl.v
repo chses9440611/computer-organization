@@ -37,8 +37,8 @@ always@(funct_i, ALUOp_i)begin
   ALUCtrl_o[3] <= 1'b0;
   ALUCtrl_o[2] <= ( ALUOp_i[1] &  funct_i[1] ) | ALUOp_i[0];
   ALUCtrl_o[1] <=   ALUOp_i[2] | ~funct_i[2];
-  ALUCtrl_o[0] <= ( funct_i[3] |  funct_i[0] ) & ALUOp_i[1];
-  Jr_o <= Jr;
+  ALUCtrl_o[0] <= funct_i[5] & ( funct_i[3] |  funct_i[0] ) & ALUOp_i[1];
+  Jr_o <= Jr & ~ALUOp_i[2] & ALUOp_i[1] & ~ALUOp_i[0];
 end
 endmodule     
 

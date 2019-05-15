@@ -30,7 +30,7 @@ output  [size-1:0] data_o;
 reg     [size-1:0] data_o;
 
 //Main function
-always@(select_i, data0_i, data1_i)begin
+always@(select_i, data0_i, data1_i, data2_i)begin
   case(select_i)
 	2'b00: data_o <= data0_i;
 	2'b01: data_o <= data1_i;

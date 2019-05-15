@@ -84,7 +84,7 @@ always@( instr_op_i)begin
   Branch_o <= Beq;
   MEM_Write <= Store;
   MEM_Read <= Load;
-  MEM2Reg <= {Jal, Jump};
+  MEM2Reg <= {Jal, Load};
   JumpType <= Jump | Jal;
   ALU_op_o[2] <= Immediate | Beq | Load | Store;
   ALU_op_o[1] <= Slti | Rformat;

@@ -96,7 +96,7 @@ Reg_File Registers(
         .RTaddr_i(instruction[20:16]) ,  
         .RDaddr_i(writeReg) ,  
         .RDdata_i(wbData)  , 
-        .RegWrite_i (regWrite),
+        .RegWrite_i (regWrite & ~jr),
         .RSdata_o(rsData) ,  
         .RTdata_o(rtData)   
         );
@@ -183,9 +183,9 @@ MUX_2to1 #(.size(32)) Branch_Src(
 
 MUX_3to1 #(.size(32)) Mux_PC_Source(
         .data0_i(from_branch_addr),
-        .data1_i(jump_addr),
+        .data1_i( { next_pc[31:28], jump_addr[27:0]} ),
         .data2_i(ALU_result),
-        .select_i({Jr, jumpType}),
+        .select_i({jr, jumpType}),
         .data_o(pc_in)
         );	
 
