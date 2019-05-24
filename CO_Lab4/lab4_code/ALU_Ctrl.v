@@ -29,7 +29,7 @@ reg        [4-1:0] ALUCtrl_o;
 //reg 			   Jr_o;
 //Parameter
 
-wire 			   Jr;
+//wire 			   Jr;
 //assign Jr = ~funct_i[5] & ~funct_i[4] & funct_i[3] & ~funct_i[2] & ~funct_i[1] & ~funct_i[0];
 wire Mult;
 assign Mult = ~funct_i[5] & funct_i[4] & funct_i[3] & ~funct_i[2] & ~funct_i[1] & ~funct_i[0];
