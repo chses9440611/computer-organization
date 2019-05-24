@@ -20,7 +20,7 @@ module Decoder(
 //	JumpType,
 	MEM_Write,
 	MEM_Read,
-	MEM2Reg,
+	MEM2Reg
 	);
      
 //I/O ports
