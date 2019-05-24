@@ -159,13 +159,13 @@ Reg_File RF(
 
 Decoder Control(
 	.instr_op_i(instruction_ID[31:26]),
-	.ALUSrc_o(ALU_source_ID),
+	.RegWrite_o(RegWrite_ID),
 	.ALU_op_o(ALU_op_ID),
+	.ALUSrc_o(ALU_source_ID),
 	.RegDst_o(RegDst_ID),
 	.Branch_o(branch_ID),
-	.MEM_Read(MEM_Read_ID),
 	.MEM_Write(MEM_Write_ID),
-	.RegWrite_o(RegWrite_ID),
+	.MEM_Read(MEM_Read_ID),
 	.MEM2Reg(MEM2Reg_ID)
 );
 
