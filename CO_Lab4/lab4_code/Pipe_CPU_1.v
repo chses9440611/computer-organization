@@ -227,7 +227,7 @@ Pipe_Reg #(.size(NUM_PIP_EX_MEM)) EX_MEM(
 	.rst_i(rst_i),
 	.data_i({branch_EX, MEM_Read_EX, MEM_Write_EX, RegWrite_EX, MEM2Reg_EX,
 			 Zero_EX, branch_addr_EX, ALU_result_EX, data2_EX, writeReg_addr_EX}),
-	.data_o({branch_MEM, MEM_Read_MEM, MEM_Write_EX, RegWrite_MEM, MEM2Reg_MEM,
+	.data_o({branch_MEM, MEM_Read_MEM, MEM_Write_MEM, RegWrite_MEM, MEM2Reg_MEM,
 			 Zero_MEM, branch_addr_MEM, ALU_result_MEM, data2_MEM, writeReg_addr_MEM})
 );
 
