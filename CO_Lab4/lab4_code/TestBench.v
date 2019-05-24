@@ -37,6 +37,8 @@ initial begin
     CLK = 0;
     RST = 0;
     count = 0;
+	$dumpfile("TestBench.vcd");
+	$dumpvars(0, cpu);
    
     // instruction memory
     for(i=0; i<32; i=i+1)
