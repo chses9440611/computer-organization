@@ -13,6 +13,7 @@
 module ProgramCounter(
     clk_i,
 	rst_i,
+	pc_write,
 	pc_in_i,
 	pc_out_o
 	);
