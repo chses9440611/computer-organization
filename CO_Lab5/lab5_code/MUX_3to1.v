@@ -35,7 +35,7 @@ always@(select_i, data0_i, data1_i)begin
   case(select_i)
 	2'b00: data_o <= data0_i;
 	2'b01: data_o <= data1_i;
-	2'b11: data_o <= data2_i;
+	2'b10: data_o <= data2_i;
   endcase
 end
 endmodule      
