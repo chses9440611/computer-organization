@@ -208,10 +208,9 @@ Decoder Control(
 );
 
 MUX_2to1 #(.size(10)) Control_MUX(
-	.data_0({ALU_source_ID, ALU_op_ID, RegDst_ID, branch_ID, MEM_Read_ID, MEM_Write_ID, RegWrite_ID, MEM2Reg_ID};
-),
-	.data_1(constant_0[10-1:0]),
-	.select_i(ID_flush)
+	.data0_i({ALU_source_ID, ALU_op_ID, RegDst_ID, branch_ID, MEM_Read_ID, MEM_Write_ID, RegWrite_ID, MEM2Reg_ID}),
+	.data1_i(constant_0[10-1:0]),
+	.select_i(ID_flush),
 	.data_o({ALU_source_MUX, ALU_op_MUX, RegDst_MUX, branch_MUX, MEM_Read_MUX, MEM_Write_MUX, RegWrite_MUX, MEM2Reg_MUX})
 );
 
@@ -292,7 +291,7 @@ ALU_Ctrl ALU_Control(
   	.ALUCtrl_o(ALU_control)
 );
 
-Forwarding_Unit(
+Forwarding_Unit Forward_Unit(
 	.EX_MEM_RegWrite(RegWrite_MEM),
 	.MEM_WB_RegWrite(RegWrite_WB),
 	.EX_MEM_Rd(writeReg_MEM),
@@ -304,7 +303,7 @@ Forwarding_Unit(
 );
 
 MUX_3to1 #(.size(32)) ForwardA_MUX(
-  .data0_i(data_1_EX),
+  .data0_i(data1_EX),
   .data1_i(ALU_result_MEM),
   .data2_i(WriteBackData),
   .select_i(ForwardA_signal),
@@ -369,7 +368,7 @@ EXMEM_Pipe_Reg EX_MEM(
 	.RegWrite_o(RegWrite_MEM),
 	.MEM2Reg_o(MEM2Reg_MEM),
 	.Zero_o(Zero_MEM),
-	.branch_addr_o(branch_addr_o),
+	.branch_addr_o(branch_addr_MEM),
 	.ALU_result_o(ALU_result_MEM),
 	.write2Mem_Data_o(Write2Mem_data_MEM),
 	.writeReg_o(writeReg_MEM)
@@ -379,7 +378,7 @@ EXMEM_Pipe_Reg EX_MEM(
 Data_Memory DM(
 	.clk_i(clk_i),
 	.addr_i(ALU_result_MEM),
-	.data_i(data2_MEM),
+	.data_i(Write2Mem_data_MEM),
 	.MemRead_i(MEM_Read_MEM),
 	.MemWrite_i(MEM_Write_MEM),
   	.data_o(MemData_MEM)
@@ -405,7 +404,7 @@ MEMWB_Pipe_Reg MEM_WB(
 
 	.RegWrite_o(RegWrite_WB),
 	.MEM2Reg_o(MEM2Reg_WB),
-	.MEMData_o(MemData_WB),
+	.MemData_o(MemData_WB),
 	.ALU_result_o(ALU_result_WB),
 	.writeReg_o(writeReg_WB)
 );

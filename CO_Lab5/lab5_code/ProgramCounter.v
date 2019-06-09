@@ -21,6 +21,7 @@ module ProgramCounter(
 //I/O ports
 input           clk_i;
 input	        rst_i;
+input 			pc_write;
 input  [32-1:0] pc_in_i;
 output [32-1:0] pc_out_o;
  
