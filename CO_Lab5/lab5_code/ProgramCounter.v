@@ -34,8 +34,10 @@ reg    [32-1:0] pc_out_o;
 always @(posedge clk_i) begin
     if(~rst_i)
 	    pc_out_o <= 0;
-	else
+	else if(pc_write)
 	    pc_out_o <= pc_in_i;
+	else
+	  	pc_out_o <= pc_out_o;
 end
 
 endmodule
