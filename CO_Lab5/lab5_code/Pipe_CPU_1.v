@@ -252,7 +252,7 @@ IDEX_Pipe_Reg ID_EX(
 	.Sign_Extend_addr_i(Sign_Extend_addr_ID),
 	.Reg_rs_i(instruction_ID[25:21]),
 	.Reg_rt_i(instruction_ID[20:16]),
-	.Reg_rd_i(instrcution_ID[15:11]),
+	.Reg_rd_i(instruction_ID[15:11]),
 
 	.ALU_source_o(ALU_source_EX),
 	.ALU_op_o(ALU_op_EX),
