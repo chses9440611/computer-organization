@@ -304,16 +304,16 @@ Forwarding_Unit Forward_Unit(
 
 MUX_3to1 #(.size(32)) ForwardA_MUX(
   .data0_i(data1_EX),
-  .data1_i(ALU_result_MEM),
-  .data2_i(WriteBackData),
+  .data1_i(WriteBackData),
+  .data2_i(ALU_result_MEM),
   .select_i(ForwardA_signal),
   .data_o(ALU_src1)
 );
 
 MUX_3to1 #(.size(32)) ForwardB_MUX(
   .data0_i(data2_EX),
-  .data1_i(ALU_result_MEM),
-  .data2_i(WriteBackData),
+  .data1_i(WriteBackData),
+  .data2_i(ALU_result_MEM),
   .select_i(ForwardB_signal),
   .data_o(Write2Mem_data_EX)
 );
@@ -354,7 +354,7 @@ EXMEM_Pipe_Reg EX_MEM(
 	.branch_i(branch_EX),
 	.MEM_Read_i(MEM_Read_EX),
 	.MEM_Write_i(MEM_Write_EX),
-	.RegWrite_i(RegWrtie_EX),
+	.RegWrite_i(RegWrite_EX),
 	.MEM2Reg_i(MEM2Reg_EX),
 	.Zero_i(Zero_EX),
 	.branch_addr_i(branch_addr_EX),
