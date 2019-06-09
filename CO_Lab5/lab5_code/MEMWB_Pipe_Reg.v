@@ -53,7 +53,7 @@ always@(posedge clk_i) begin
   else begin
 	RegWrite_o 	<= RegWrite_i;
 	MEM2Reg_o 	<= MEM2Reg_i;
-	MemData_o 	<= MemData_o;
+	MemData_o 	<= MemData_i;
 	ALU_result_o<= ALU_result_i;
 	writeReg_o 	<= writeReg_i;
   end

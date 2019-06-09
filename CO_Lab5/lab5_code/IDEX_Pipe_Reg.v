@@ -118,7 +118,7 @@ always@(posedge clk_i) begin
 		// MEM
 		branch_o 	<= branch_i;
 		MEM_Read_o 	<= MEM_Read_i;
-		MEM_Write_o <= MEM_Write_o;
+		MEM_Write_o <= MEM_Write_i;
 		// WB
 		RegWrite_o 	<= RegWrite_i;
 		MEM2Reg_o	<= MEM2Reg_i;
